@@ -1,3 +1,4 @@
+(eval-when (compile) (optimize-level 3))
 
 (library (union-find)
   (export new-union-find
@@ -8,5 +9,4 @@
           size
           union!)
   (import (chezscheme))
-  (include "code/union-find.scm")
-  )
+  (include "code/union-find.scm"))

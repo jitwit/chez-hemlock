@@ -1,3 +1,4 @@
+;;;; Union Find structure using eqv-hashtables
 
 (define-record-type union-find
   (fields (mutable parent)
@@ -5,17 +6,14 @@
 
 (define new-union-find
   (lambda ()
-    (make-union-find (make-eq-hashtable) (make-eq-hashtable))))
-
-(define example
-  (new-union-find))
+    (make-union-find (make-eqv-hashtable) (make-eqv-hashtable))))
 
 (define get-root
   (lambda (uf node)
     (letrec ((table (union-find-parent uf))
              (aux (lambda (node)
                     (let ((parent (hashtable-ref table node node)))
-                      (if (eq? node parent)
+                      (if (eqv? node parent)
                           (begin
                             (hashtable-set! table parent parent)
                             node)
@@ -48,7 +46,7 @@
                   (lookup uf node-x))
                  ((root-y size-y)
                   (lookup uf node-y)))
-      (unless (eq? root-x root-y)
+      (unless (eqv? root-x root-y)
         (cond ((<= size-x size-y)
                (set-root! uf root-x root-y)
                (set-size! uf root-y (+ size-x size-y)))
@@ -73,4 +71,3 @@
 
 (define size
   get-size)
-
