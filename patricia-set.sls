@@ -30,6 +30,4 @@
   (import (chezscheme))
   
   (include "code/patricia-set.scm")
-  (define patricia-set? patricia-tree?)
-  
-  )
+  (define patricia-set? patricia-tree?))

@@ -1,5 +1,5 @@
 package = chez-hemlock
-version = 0.1
+version = 0.2
 chez = scheme
 out =
 

@@ -40,8 +40,4 @@
           (prefix (pairing-heap) h:))
 
   (include "code/outils.scm")
-  (include "code/kd-tree.scm")
-
-  )
-
-
+  (include "code/kd-tree.scm"))
